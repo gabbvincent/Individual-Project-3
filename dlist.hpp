@@ -35,7 +35,7 @@ public:
 
     head = temp;
     if (tail == nullptr) {
-      tail - temp;
+      tail = temp;
     }
     size++;
   }
@@ -54,8 +54,8 @@ public:
     Node* temp = head;
 
     head = head->next;
-    if (head = nullptr) {
-      tail == nullptr;
+    if (head == nullptr) {
+      tail = nullptr;
     } else {
       head->prev = nullptr;
     }
@@ -86,6 +86,28 @@ public:
 
     return tail->value;
 
+  }
+
+  void insert(T value) {
+    if (empty()) {
+      pushFront(value);
+    } else if (value <= head->value) {
+      pushFront(value);
+    } else if (value >= tail->value) {
+      pushBack(value);
+    } else {
+      Node *n = new Node(value);
+      Node *temp = head;
+      while (value > temp->value) {
+        temp = temp->next;
+      }
+      n->prev = temp->prev;
+      n->next = temp;
+      n->prev->next = n;
+      temp->prev = n;
+
+      size++;
+    }
   }
 
   // Return the number of nodes in this list.

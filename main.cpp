@@ -15,28 +15,57 @@ int main(int argc, char* argv[]) {
       string nextline;
       while (getline(fin, nextline)) {
 
+        if (nextline.size() == 0) {
+          continue;
+        }
+
         if (nextline.at(0) == '#') {
           //DO Nothing, # = comment
         } else if (nextline.at(0) == 'C') {
-          DList<int> *list = new DList<int>;
+          list = new DList<int>;
           cout << "LIST CREATED" << endl;
         } else if (nextline.at(0) == 'X') {
           if (list == nullptr) {
-            cout << "MUST CREATE LSIT INSTANCE" << endl;
+            cout << "MUST CREATE LIST INSTANCE" << endl;
           } else {
-          list->clear();
-          cout << "LIST CLEARED" << endl;
+            list->clear();
+            cout << "LIST CLEARED" << endl;
+          }
+        } else if (nextline.at(0) == 'D') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            delete list;
+            list = nullptr;
+            cout << "LIST DELETED" << endl;
+          }
+        } else if (nextline.at(0) == 'I') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            int data = stoi(nextline.substr(2));
+            list->insert(data);
+            cout << "VALUE " << data << " INSERTED" << endl;
+          }
+        } else if (nextline.at(0) == 'P') {
+          if (list == nullptr) {
+          cout << "MUST CREATE LIST INSTANCE" << endl; 
+          } else {
+            if (list->empty()) {
+              cout << "EMPTY LIST" << endl;
+            } else {
+            cout << list->toString() << endl;
+            }
           }
         }
-
       }
 
     } else {
-      cout << "Failed to ope file" << argv[1] << endl;
+      cout << "Failed to open file" << argv[1] << endl;
     }
 
   } else {
-    cout << "Usage: " << argv[0] << " INPUTE_FILE" << endl;
+    cout << "Usage: " << argv[0] << " INPUT_FILE" << endl;
   }
 }
 
