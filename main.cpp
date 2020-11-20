@@ -57,6 +57,18 @@ int main(int argc, char* argv[]) {
             cout << list->toString() << endl;
             }
           }
+        } else if (nextline.at(0) == 'R') {
+          if(list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            int data = stoi(nextline.substr(2));
+            bool result = list->remove(data);
+            if (result == true) {
+              cout << "VALUE " << data << " REMOVED" << endl;
+            } else {
+              cout << "VALUE " << data << " NOT FOUND" << endl;
+            }
+          }
         }
       }
 

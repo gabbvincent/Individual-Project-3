@@ -5,9 +5,19 @@ I 10
 C
 P
 I 20
-I 5
 I 10
 I 15
+I 1
+I 2
+I 3
+I 4
+P
+R 2
+R 3
+R 4
+R 22
+R 20
 P
 X
 D
+C

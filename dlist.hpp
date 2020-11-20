@@ -65,7 +65,50 @@ public:
   }
 
   void popBack() {
+    if (tail == nullptr) {
+      throw logic_error("EMPTY LIST");
+    }
 
+    Node* temp = tail;
+
+    tail = tail->prev;
+    if (head == nullptr) {
+      tail = nullptr;
+    } else {
+      tail->next = nullptr;
+    }
+  
+    delete temp;
+    size--;
+
+  }
+
+  bool remove (T value) {
+    if (empty()) {
+      return false;
+    } else if (value == head->value) {
+      popFront();
+      return true;
+    } else if (value == tail->value) {
+      popBack();
+      return true;
+    } else {
+
+      Node *temp = head;
+      while (temp != nullptr && value != temp->value) {
+        temp = temp->next;
+      }
+
+      if (temp == nullptr) {
+        return false;
+      } else {
+        temp->prev->next = temp->next;
+        temp->next->prev = temp->prev;
+        delete temp;
+        size--;
+        return true;
+      }
+    }
   }
 
 
