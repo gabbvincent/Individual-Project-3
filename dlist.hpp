@@ -41,6 +41,19 @@ public:
   }
 
   void pushBack(T value) {
+    Node* temp = new Node(value);
+    
+    temp->prev = tail;
+
+    if (tail != nullptr) {
+      tail->next = temp;
+    }
+
+    tail = temp;
+    if (head == nullptr) {
+      head = temp;
+    }
+    size++;
 
   }
 
@@ -111,6 +124,28 @@ public:
     }
   }
 
+  bool eliminate(T value) {
+    unsigned int removed(0);
+
+    while (remove(value) == true) {
+      removed++;
+    }
+
+    return removed > 0;
+  }
+
+  bool get(T value) {
+    Node *temp = head;
+    while (temp != nullptr) {
+      if (temp->value == value) {
+        return true;
+      } else {
+        temp = temp->next;
+      }
+    }
+
+    return false;
+  }  
 
   // Return the value stored in the head Node.
   // Throws std::logic_error("EMPTY LIST") when list is empty

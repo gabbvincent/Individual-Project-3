@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
             }
           }
         } else if (nextline.at(0) == 'R') {
-          if(list == nullptr) {
+          if (list == nullptr) {
             cout << "MUST CREATE LIST INSTANCE" << endl;
           } else {
             int data = stoi(nextline.substr(2));
@@ -67,6 +67,76 @@ int main(int argc, char* argv[]) {
               cout << "VALUE " << data << " REMOVED" << endl;
             } else {
               cout << "VALUE " << data << " NOT FOUND" << endl;
+            }
+          }
+        } else if (nextline.at(0) == 'A') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            cout << "VALUE " << list->front() << " AT HEAD" << endl;
+          }
+        } else if (nextline.at(0) == 'Z') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            cout << "VALUE " << list->back() << " AT TAIL" << endl;
+          }
+        } else if (nextline.at(0) == 'F') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            int data = stoi(nextline.substr(2));
+            list->pushFront(data);
+            cout << "VALUE " << data << " ADDED TO HEAD" << endl;
+          }
+        } else if (nextline.at(0) == 'B') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            int data = stoi(nextline.substr(2));
+            list->pushBack(data);
+            cout << "VALUE " << data << " ADDED TO TAIL" << endl;
+          }
+        } else if (nextline.at(0) == 'N') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            cout << "LIST SIZE IS " << list->getSize() << endl;
+          }
+        } else if (nextline.at(0) == 'T') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            list->popFront();
+            cout << "REMOVED HEAD" << endl;
+          }
+        } else if (nextline.at(0) == 'K') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            list->popBack();
+            cout << "REMOVED TAIL" << endl;
+          }
+        } else if (nextline.at(0) == 'E') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            int data = stoi(nextline.substr(2));
+            if (list->eliminate(data) == true) {
+              cout << "VALUE " << data << " EMILINATED" << endl;
+            } else {
+              cout << "VALUE " << data << " NOT FOUND" << endl;
+            }
+          }
+        } else if (nextline.at(0) == 'G') {
+          if (list == nullptr) {
+            cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else {
+            int data = stoi(nextline.substr(2));
+            if (list->get(data) == true) {
+              cout << "VALUE " << data << " FOUND" << endl;
+            } else {
+              cout << "VALUE " << data << " NOT FOUND" << endl; 
             }
           }
         }

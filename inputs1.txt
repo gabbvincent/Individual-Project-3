@@ -12,12 +12,59 @@ I 2
 I 3
 I 4
 P
+N
+A
+Z
 R 2
+N
 R 3
+N
 R 4
+N
 R 22
+N
 R 20
+N
 P
+A
+Z
 X
 D
 C
+F 10
+F 11
+F 12
+F 13
+B 9
+B 8
+B 7
+B 6
+P
+K
+N
+K
+N
+T
+N
+T
+P
+N
+X
+D
+C
+F 2
+F 5
+F 7
+F 2
+F 8
+F 0
+F 9
+F 7
+P
+N
+R 0
+P
+N
+E 2
+P
+N
