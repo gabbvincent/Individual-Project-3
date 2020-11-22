@@ -68,3 +68,39 @@ N
 E 2
 P
 N
+P
+X
+P
+D
+C
+F 10
+F 10
+K 
+T
+B 10
+F 11
+N
+P
+X
+F 1
+F 2
+B 3
+I 10
+P
+I 4
+P
+G 10
+R 10
+P
+N
+F 2
+F 2
+F 2
+B 4
+P
+N
+E 2
+P
+X
+D
+F 20

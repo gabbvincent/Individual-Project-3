@@ -1,9 +1,11 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <iostream>
 using std::logic_error;
 using std::ostringstream;
 using std::string;
+using namespace std;
 
 template <typename T>
 class DList {
@@ -60,9 +62,6 @@ public:
   // Remove the head node.
   // Throws std::logic_error("EMPTY LIST") when list is empty
   void popFront() noexcept(false) {
-    if (head == nullptr) {
-      throw logic_error("EMPTY LIST");
-    }
 
     Node* temp = head;
 
@@ -78,10 +77,7 @@ public:
   }
 
   void popBack() {
-    if (tail == nullptr) {
-      throw logic_error("EMPTY LIST");
-    }
-
+    
     Node* temp = tail;
 
     tail = tail->prev;
@@ -151,7 +147,7 @@ public:
   // Throws std::logic_error("EMPTY LIST") when list is empty
   T front() noexcept(false) {
     if (head == nullptr) {
-      throw logic_error("EMPTY LIST");
+      cout << "EMPTY LIST" << endl;
     }
 
     return head->value;
@@ -159,7 +155,7 @@ public:
 
   T back() noexcept(false) {
     if (tail == nullptr) {
-      throw logic_error("EMPTY LIST");
+      cout << "EMPTY LIST" << endl;
     }
 
     return tail->value;

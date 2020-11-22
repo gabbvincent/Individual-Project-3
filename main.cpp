@@ -50,13 +50,11 @@ int main(int argc, char* argv[]) {
         } else if (nextline.at(0) == 'P') {
           if (list == nullptr) {
           cout << "MUST CREATE LIST INSTANCE" << endl; 
-          } else {
-            if (list->empty()) {
+          } else if (list->empty()) {
               cout << "EMPTY LIST" << endl;
             } else {
             cout << list->toString() << endl;
             }
-          }
         } else if (nextline.at(0) == 'R') {
           if (list == nullptr) {
             cout << "MUST CREATE LIST INSTANCE" << endl;
@@ -106,6 +104,8 @@ int main(int argc, char* argv[]) {
         } else if (nextline.at(0) == 'T') {
           if (list == nullptr) {
             cout << "MUST CREATE LIST INSTANCE" << endl;
+          } else if (list->empty()) {
+            cout << "EMPTY LIST" << endl;
           } else {
             list->popFront();
             cout << "REMOVED HEAD" << endl;
@@ -113,7 +113,9 @@ int main(int argc, char* argv[]) {
         } else if (nextline.at(0) == 'K') {
           if (list == nullptr) {
             cout << "MUST CREATE LIST INSTANCE" << endl;
-          } else {
+          } else if (list->empty()) {
+            cout << "EMPTY LIST" << endl;
+            } else {
             list->popBack();
             cout << "REMOVED TAIL" << endl;
           }
